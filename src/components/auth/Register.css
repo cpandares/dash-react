@@ -1,0 +1,153 @@
+#verpassword{
+    cursor: pointer;
+}
+
+.formContainer{
+    background-color: #fff !important;
+    width: 90% !important;
+    margin-left: 70px;
+    opacity: 1;
+    border: dashed 0px #000000;
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+    padding: 30px 15px;
+}
+/* On screens that are 992px wide or less*/
+@media screen and (min-width: 1000px) {
+    #deskNO {
+        display: none;
+    }
+
+    #mobileT {
+        text-align: left !important;
+    }
+
+    #signUpM {
+        display: none;
+    }
+
+    #buttonM {
+        display: none;
+    }
+
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    #modalBox {
+        width: 98% !important;
+        margin-left: 0px !important;
+    }
+
+    #logoM {
+        display: none;
+    }
+
+    #mobileLinks {
+        width: 98% !important;
+        padding: 0px;
+    }
+
+    #marinoM {
+        display: none;
+
+    }
+
+    #mobileT {
+        text-align: left !important;
+    }
+
+    #deskNO {
+        display: none;
+    }
+
+    #textMO {
+        text-align: center !important;
+    }
+}
+
+
+
+
+
+/* On screens that are 992px wide or less*/
+@media screen and (max-width: 992px) {
+    #modalBox {
+        width: 98% !important;
+        margin-left: 0px !important;
+    }
+
+    #logoM {
+        display: none;
+    }
+
+    #mobileLinks {
+        width: 98% !important;
+        padding: 0px;
+    }
+
+    #marinoM {
+        display: none;
+
+    }
+
+    #mobileT {
+        text-align: left !important;
+    }
+
+    #deskNO {
+        display: none;
+    }
+
+    #textMO {
+        text-align: center !important;
+    }
+}
+
+/* On screens that are 600px wide or less */
+@media screen and (max-width:768px) {
+    #modalMobile {
+        width: 90% !important;
+    }
+
+    #modalBox {
+        width: 98% !important;
+        margin-left: 0px !important;
+    }
+
+    #logoM {
+        display: none;
+    }
+
+    #mobileLinks {
+        width: 98% !important;
+        padding: 0px;
+        margin-top: 0px !important;
+    }
+
+    #mobileSign {
+        margin-top: 10px !important;
+    }
+
+    #marinoM {
+        display: none;
+    }
+
+    #mobileT {
+        text-align: center !important;
+        margin-top: -60px;
+    }
+
+    #textMO {
+        text-align: center !important;
+    }
+
+    #mobileNO {
+        display: none;
+    }
+
+    .signUpM {
+        margin-top: 9px !important;
+    }
+}
