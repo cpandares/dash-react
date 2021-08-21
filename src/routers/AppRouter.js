@@ -34,11 +34,9 @@ export const AppRouter = ()=>{
     },[dispatch])
 
  
- if(user ){
-    if(user.identity=5){
-       
-    }
- }
+    console.log(user)
+
+   
    
    if(checking){
        return <h5>please wait...</h5>

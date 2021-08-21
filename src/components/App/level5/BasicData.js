@@ -13,10 +13,10 @@ const dispath = useDispatch();
 const {  user  } = useSelector( state=>state.auth );
 
 const [ formValues, handleInputChange ] = useForm({
-  name:user.user.name,
-  lastname:user.user.lastname,
-  email:user.user.email,
-  id : user.user.sub        
+  name:user.name,
+  lastname:user.lastname,
+  email:user.email,
+  id : user.sub        
 });
 
 const handleSubmit = (e)=>{
@@ -37,6 +37,8 @@ const { sub, name, lastname, email } = formValues;
           <HeaderScreen />
 
           <div className="container">
+            <h2 className="text-center">Your Data</h2>
+            
             <form className="form-group card p-5" onSubmit={ handleSubmit }>
               <div className="row">
                 <div className="col-lg-4 col-md-12">
@@ -81,31 +83,7 @@ const { sub, name, lastname, email } = formValues;
                 </div>
               </div>
 
-              {/* <div className="row">
-                <div className="col-lg-4 col-md-12">
-                  <input
-                    className="form-control my-2"
-                    placeholder="name"
-                    style={{ border: "none", borderBottom: "1px solid black" }}
-                  />
-                </div>
-
-                <div className="col-lg-4 col-md-12">
-                  <input
-                    className="form-control my-2"
-                    placeholder="email"
-                    style={{ border: "none", borderBottom: "1px solid black" }}
-                  />
-                </div>
-
-                <div className="col-lg-4 col-md-12">
-                  <input
-                    className="form-control my-2"
-                    placeholder="phone"
-                    style={{ border: "none", borderBottom: "1px solid black" }}
-                  />
-                </div>
-              </div> */}
+             
 
               <button
                 className="btn btn-primary mt-5"

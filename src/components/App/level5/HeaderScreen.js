@@ -19,7 +19,15 @@ const HeaderScreen = () => {
     {/*   <button id="sidebarToggleTop" className="btn btn-link rounded-circle mr-3">
         <i className="fa fa-bars"></i>
       </button> */}
+
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item active">
+           <Link to="/panel/basic-data" className="nav-link">Home </Link>
+        </li>
+      </ul>
+
       <ul className="navbar-nav ml-auto">
+
         <li className="nav-item dropdown no-arrow">
           <a className="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -194,10 +202,10 @@ const HeaderScreen = () => {
               Activity Log
             </a>
             <div className="dropdown-divider"></div>
-            <a className="dropdown-item" onClick={handleLogout} aria-expanded="false">
+            <button className="dropdown-item" onClick={handleLogout} aria-expanded="false">
               <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
               Logout
-            </a>
+            </button>
           </div>
         </li>
       </ul>

@@ -16,7 +16,7 @@ const HeaderScreen = () => {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
-        <img src="../../assets/Logo.png" className="img-fluid"/>
+        <img src="../Logo.png" className="img-fluid" style={{ height:'60%',width:'150px'  }}/>
 
         <div className="topbar-divider d-none d-sm-block"></div>
 

@@ -10,7 +10,7 @@
       -webkit-border-radius: 16px;
       border-radius: 16px;
       margin-left:100px ;
-      width: 50% !important;
+      width: 30% !important;
 }
 
   #phrase {
@@ -23,13 +23,13 @@
     text-align: center;
   }
 
-  .login {
+  /* .login {
     border-color: #4278c2;
     padding: 20px;
     margin-bottom: 5px;
     margin-top: 10px;
-    width: 65%;
-  }
+    width: 50%;
+  } */
 
   #submit {
     width: 65%;

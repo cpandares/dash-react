@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 
 import HeaderScreen from './HeaderScreen';
@@ -7,6 +8,12 @@ import SidebarScreen from './Sidebar';
 
 
 const Dashsboard = () => {
+
+    const { user } = useSelector( state=>state.auth );
+
+    
+
+
     return (
         <div id="wrapper">
 
@@ -14,34 +21,64 @@ const Dashsboard = () => {
 
           <div id="content-wrapper" className="d-flex flex-column">
 
+          
+
             <div id="content">
 
-                <HeaderScreen />
+                <HeaderScreen />    
+
+                <div className="container my-4">
+                  <h5 > <b>Welcome back  </b> { user.name } - Your membership is: 30255 </h5>
+                </div>           
 
                 <div class="card-group container">
-                    <div class="card mr-1">
-                    <img src="..." class="card-img-top" alt="..." />
+                
+                    <div class="card mr-1 p-1 rounded">
+                      <img src="../assets/rvplans.jpg" alt="Plans" />
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">RV Advisor's Motorclub Products and Services</h5>
+                        
+                       
                       </div>
+                      <div className="cusBtnH">
+                        <a href="#" className="ml-4">
+                          <button className=" btn btn-outline-primary rounded-pill">Roadside Assistance</button>
+                        </a>
+									      <a href="#" className="ml-1">
+										      <button className=" btn btn-outline-primary  rounded-pill">Tire and Wheel</button>
+									      </a>
+							      	</div>
                     </div>
-                    <div class="card">
-                    <img src="..." class="card-img-top" alt="..." />
+
+                    <div class="card p-1 rounded">
+                      <img src="../assets/coupons.jpg" alt="coupons" />
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">Get Coupons and Discounts</h5>
+                        <p>Download coupons and start enjoying all the benefits that RV Advisor is bringing to you!!</p>
                       </div>
+
+                      <div className="cusBtnH ">                        
+                        <a href="#" >
+                            <button className=" btn btn-outline-primary btn-block rounded-pill">Get Coupons</button>
+                        </a>
+							      	</div>
+
                     </div>
+
                     <div class="card ml-1">
-                      <img src="..." class="card-img-top" alt="..." />
+                       <img src="../assets/annon.jpg" alt="plans" />
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">Announcements and latest News</h5>
+                        
+                        
                       </div>
+
+                      <div className="cusBtnH">
+                        <a  href="https://thervadvisor.com/joincommunity/all-blog-posts/"><button className="btn btn-outline-primary ml-2 rounded-pill">RV Advisor Blog</button></a> 
+                        <a href="https://thervadvisor.com/about-gigi/just-ask-gigi/"><button className=" btn btn-outline-primary ml-2 rounded-pill">Just Ask GIGI Show</button></a>
+                        <a href="https://thervadvisor.com/joincommunity/rv-and-camping-podcast/"><button className=" btn btn-outline-primary ml-2 mt-1 rounded-pill">RVA Podcast</button></a>
+								      </div>
+
                     </div>
                  </div>
                 

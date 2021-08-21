@@ -1,20 +1,20 @@
 import { useSelector } from 'react-redux';
+
+
+import { AppLevel1Screen } from './level1/AppLevel1';
+import { AppLevel3Screen } from './level3/AppLevel3';
+import { AppLevel4Screen } from './level4/AppLevel4';
 import { AppLevel5Screen } from './level5/AppLevel5';
 
 
 
-
-/* import { AppScreenLevel3 } from './level3/AppScreen';
-import { AppScreenLevel1 } from './level1/AppScreen';
-import { AppScreenLevel4 } from './level4/AppScreen'; */
-
-
 export const AppSreen = ()=>{
 
-    const {  user  } = useSelector( state=>state.auth );
+    const { user } = useSelector( state=>state.auth );
 
-    const level = user.user['idUserLevel'];
-  
+    const level = user['idUserLevel'];
+   
+    console.log(user)
 
     return ( 
         <div>
@@ -25,24 +25,24 @@ export const AppSreen = ()=>{
 
            }
 
-            {/* {    
+            {    
                 level == 3 &&
-                <AppScreenLevel3 /> 
+                <AppLevel3Screen /> 
                 
             }
 
             {    
                 level == 4 &&
-                <AppScreenLevel4 /> 
+                <AppLevel4Screen /> 
                 
             }
 
-
+           
             {    
                 level == 1 &&
-                <AppScreenLevel1 /> 
+                <AppLevel1Screen /> 
                 
-            } */}
+            }
            
 
         </div>

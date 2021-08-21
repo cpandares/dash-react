@@ -23,7 +23,7 @@ export const LoginScreen = () => {
   return (
 
     
-    <div className="bg-gradient-login">
+    <div className="bg-gradient-login" >
 
         <div className="hero__background">
             <video autoPlay="" loop="" muted="" >
@@ -33,14 +33,15 @@ export const LoginScreen = () => {
       <HeaderScreen />
 
       <div className="row text-center">
-        <div className="col-10 p-5 mt-5 login">
-          <img id="logo" src="../../assets/Logo1old.png" />
+          
+        <div className="col-md-10 p-5 mt-5 login">
+          <img id="logo" src="../Logo.png" />
 
           <h4 id="welcome">
             ADVOCACY. COMMUNITY. EDUCATION. RESOURCES. REWARDS{" "}
           </h4>
 
-          <form method="POST" className="form-group" onSubmit={handleSubmit}>
+          <form method="POST" className="form-group" onSubmit={handleSubmit} >
             <center>
               <input
                 type="email"
@@ -88,6 +89,7 @@ export const LoginScreen = () => {
           </form>
         </div>
       </div>
+     
     </div>
   );
 };

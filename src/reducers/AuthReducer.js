@@ -4,11 +4,7 @@ import { types } from "../types/types";
 const initialState = {
     checking:true,
     ok:false,
-    
-    /**
-     * user,
-     * token
-     */
+   
 }
 
 export const AuthReducer = ( state = initialState, action )=>{
@@ -21,7 +17,7 @@ export const AuthReducer = ( state = initialState, action )=>{
                     ...state,
                     ...action.payload,     
                     checking:false,                 
-                    ok:true
+                    ok:true              
 
                  }
 

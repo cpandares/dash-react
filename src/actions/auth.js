@@ -26,15 +26,11 @@ export const startLoginWithEmail = ( email, password )=>{
             localStorage.setItem('tokenInitDate', new Date().getTime());
 
            
-            dispatch( login( { 
+            dispatch( login( {
+                user:body.user
+            } ) )
 
-                user: body.user,
-                token: body.token,
-               
-
-             } ) )
-
-             dispatch(finishChecking());
+            
         }else{
             Swal.fire('Error', body.msg, 'error');
         }
@@ -100,14 +96,8 @@ export const login = ( user, token ) =>{
     return {
 
         type: types.login,
-        payload: {
-
-            user,
-            token
-        
-        }
-
-
+        payload:  user 
+    
     }
 
 }
