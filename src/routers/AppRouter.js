@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     BrowserRouter as Router,
     Switch,
-   
+    Route, 
     Redirect
   } from "react-router-dom";
 
@@ -18,6 +18,14 @@ import { PublicRoute } from "./PublicRoute";
 import { startChecking } from '../actions/auth';
 
 import { AuthRouter } from "./AuthRouter";
+import { GlobalRouter } from "./GlobalRouter";
+
+import RoadSideScreen from "../components/store/RoadSideScreen";
+import TireAndWheelScreen from "../components/store/TireAndWheelScreen";
+import GpsScreen from "../components/store/GpsScreen";
+import ExtendedWarrantyScreen from "../components/store/ExtendedWarrantyScreen";
+import VirtualMechanicScreen from "../components/store/VirtualMechanicScreen";
+import LegalClubScreen from "../components/store/LegalClubScreen";
 
 export const AppRouter = ()=>{
 
@@ -51,6 +59,13 @@ export const AppRouter = ()=>{
 
                 <Switch>
 
+                    <Route exact path="/store/roadside" component = { RoadSideScreen } />
+                    <Route exact path="/store/tirewheel" component = { TireAndWheelScreen }/>
+                    <Route exact path="/store/gps" component = { GpsScreen }/>
+                    <Route exact path="/store/extendedwarranty" component = { ExtendedWarrantyScreen } />
+                    <Route exact path="/store/virtualmechanic" component = { VirtualMechanicScreen } />
+                    <Route exact path="/store/legalclub" component = { LegalClubScreen } />
+                    
                     <PublicRoute
 
                         path = "/auth"
@@ -67,6 +82,8 @@ export const AppRouter = ()=>{
                         isAuth = { !!user }
 
                     />
+
+                    
 
                     <Redirect to="/auth/login" />
 

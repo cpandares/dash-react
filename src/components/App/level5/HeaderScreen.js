@@ -22,7 +22,7 @@ const HeaderScreen = () => {
 
       <ul className="navbar-nav mr-auto">
         <li className="nav-item active">
-           <Link to="/panel/basic-data" className="nav-link">Home </Link>
+           <Link to="/" className="nav-link">Home </Link>
         </li>
       </ul>
 

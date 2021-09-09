@@ -11,4 +11,10 @@ export const types = {
     getUserById: '[User] userById',
     updateUser: '[User] updateUser',
 
+    createVehicleUser: '[Vehicle] AddNewVehicle',
+    getVehicleUser:'[Vehicle] GetVehicleUser',
+
+    createInsurancePolice:'[Insurance] addNewInsurance',
+    addDependentUser: '[Dependent] addUserDependent'
+
 }

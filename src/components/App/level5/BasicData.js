@@ -36,11 +36,12 @@ const { sub, name, lastname, email } = formValues;
         <div id="content">
           <HeaderScreen />
 
-          <div className="container">
-            <h2 className="text-center">Your Data</h2>
+          <div className="container">          
             
             <form className="form-group card p-5" onSubmit={ handleSubmit }>
-              <div className="row">
+
+              <h2 className="text-center">Your Data</h2>
+              <div className="row mt-5">
                 <div className="col-lg-4 col-md-12">
                   <input
                     className="form-control my-2"
@@ -83,10 +84,53 @@ const { sub, name, lastname, email } = formValues;
                 </div>
               </div>
 
+              <div className="row mt-5">
+                <div className="col-lg-4 col-md-12">
+                  <input
+                    className="form-control my-2"
+                    placeholder="password"
+                    
+                    style={{ border: "none", borderBottom: "1px solid black" }}
+                  />
+                </div>
+
+                <div className="col-lg-4 col-md-12">
+                  <input
+                    className="form-control my-2"
+                    placeholder="Confirm Password"
+                   
+                    style={{ border: "none", borderBottom: "1px solid black" }}
+                  />
+                </div>
+
+                <div className="col-lg-4 col-md-12">
+                  <input
+                    className="form-control my-2"
+                    placeholder="SSN"
+                    
+                    style={{ border: "none", borderBottom: "1px solid black" }}
+                  />
+                </div>
+
+              </div>
+
+              <div className="row mt-5">
+                <div className="col-lg-4 col-md-12">
+                  <input
+                    className="form-control my-2"
+                    placeholder="birth day"
+                    
+                    style={{ border: "none", borderBottom: "1px solid black" }}
+                  />
+                </div>
+
+               
+              </div>
+
              
 
               <button
-                className="btn btn-primary mt-5"
+                className="btn btn-outline-primary mt-5 rounded-pill"
                 type="submit"
                 style={{ width: "50%", marginLeft: "250px" }}
               >

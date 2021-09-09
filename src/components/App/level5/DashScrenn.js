@@ -4,14 +4,14 @@ import { useSelector } from 'react-redux';
 
 import HeaderScreen from './HeaderScreen';
 import SidebarScreen from './Sidebar';
-
+import { Link } from "react-router-dom";
 
 
 const Dashsboard = () => {
 
     const { user } = useSelector( state=>state.auth );
-
     
+    const fecha = new Date().getFullYear();
 
 
     return (
@@ -58,18 +58,17 @@ const Dashsboard = () => {
                       </div>
 
                       <div className="cusBtnH ">                        
-                        <a href="#" >
+                        <Link to="/panel/discounts" >
                             <button className=" btn btn-outline-primary btn-block rounded-pill">Get Coupons</button>
-                        </a>
+                        </Link>
 							      	</div>
 
                     </div>
 
-                    <div class="card ml-1">
+                    <div class="card ml-1 p-1 rounded">
                        <img src="../assets/annon.jpg" alt="plans" />
                       <div class="card-body">
-                        <h5 class="card-title">Announcements and latest News</h5>
-                        
+                        <h5 class="card-title">Announcements and latest News</h5>                       
                         
                       </div>
 
@@ -83,10 +82,10 @@ const Dashsboard = () => {
                  </div>
                 
             </div>
-
+            <p className="text-center"> <b> { fecha }  </b>  <i classname="far fa-copyright"></i>RV-Advisor</p>
           </div>
     
-
+       
         </div>
     );
 };

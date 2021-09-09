@@ -1,8 +1,8 @@
 
 import { Redirect, Route, Switch } from 'react-router';
+import RoadSideScreen from '../components/store/RoadSideScreen';
 
-import { AppSreen } from '../components/App/AppScreen';
-import { AppScreen } from '../components/App/level3/AppScreen';
+
 
 export const GlobalRouter = ()=>{
 
@@ -12,9 +12,9 @@ export const GlobalRouter = ()=>{
 
             <Switch>
 
-                <Route exact path="/" component = { AppSreen } />
+                <Route exact path="/store/road-side" component = { RoadSideScreen } />
 
-                <Route exact path="/home" component = { AppScreen } />
+            
 
                 <Redirect to="/" />
 

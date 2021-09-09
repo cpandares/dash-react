@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
 
+import {  useSelector } from 'react-redux';
 
 import { AppLevel1Screen } from './level1/AppLevel1';
 import { AppLevel3Screen } from './level3/AppLevel3';
@@ -10,11 +10,11 @@ import { AppLevel5Screen } from './level5/AppLevel5';
 
 export const AppSreen = ()=>{
 
+  
     const { user } = useSelector( state=>state.auth );
 
-    const level = user['idUserLevel'];
-   
-    console.log(user)
+    const level = user['idUserLevel'];  
+  
 
     return ( 
         <div>

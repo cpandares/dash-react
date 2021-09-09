@@ -4,10 +4,17 @@ import { startRegister } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 
 import './Register.css';
-import HeaderScreen from '../../shared/HeaderScreen';
+import HeaderScreen from "./HeaderScreenPublic";
+import { useState } from 'react';
 
 
 export const RegisterScreen = ()=>{
+
+    const [ typeMembership1, setTypeMembership1 ] = useState(false); //Membershiptype 1 year
+    const [ typeMembership2, setTypeMembership2 ] = useState(false); //Membershiptype 3 year
+    const [ typeMembership3, setTypeMembership3 ] = useState(false); //Membershiptype 5 year
+    const [ typeMembership4, setTypeMembership4 ] = useState(false); //Membershiptype non member account
+    const [ typeMembership5, setTypeMembership5 ] = useState(false); //Membershiptype professionals
 
     const dispatch = useDispatch();
 
@@ -23,7 +30,7 @@ export const RegisterScreen = ()=>{
         membership:"0",
         membershipPaid:"NO",      
         validationResult:"0",
-        membershipType:"1",
+        membershipType:"",
         rv_owner:"NO",
         reference:"1",
         Allow_Communications:"YES",
@@ -39,6 +46,38 @@ export const RegisterScreen = ()=>{
         dispatch( startRegister( name, lastname, email,password,phone,idUserLevel,softdelete,membershipRenewal, membership, membershipPaid,validationResult, membershipType,rv_owner,reference, Allow_Communications, Origin, legal ) );
     }
 
+    const handleSelect = (e)=>{
+        e.preventDefault();
+        const typeMembership = e.target.value;
+       
+        if(typeMembership==1){//Set membershiptype 1 year
+            setTypeMembership1(true);
+        }else{
+            setTypeMembership1(false);
+        }
+
+        if(typeMembership==2){
+            setTypeMembership2(true)
+        }else{
+            setTypeMembership2(false)
+        }
+        if(typeMembership==3){
+            setTypeMembership3(true);
+        }else{
+            setTypeMembership3(false)
+        }
+        if(typeMembership==4){
+            setTypeMembership4(true)
+        }else{
+            setTypeMembership4(false)
+        }if(typeMembership==5){
+            setTypeMembership5(true);
+        }else{
+            setTypeMembership5(false);
+        }
+        
+    }
+
     return ( 
 
        
@@ -46,7 +85,7 @@ export const RegisterScreen = ()=>{
             <HeaderScreen />
             <div className="formContainer p-3">
 
-              <span className="text-center">  We honor our military! CREATE YOUR MILITARY ACCOUNT</span>  <Link to="/auth/login">HERE</Link>
+              <span className="text-center">  We honor our military! CREATE YOUR MILITARY ACCOUNT</span>  <Link to="/auth/create-military-account">HERE</Link>
                 <hr />
 
                 <h4 id="msignUp" >Sign-Up<br /><span className="msgSpan" > RV Advisor & RV Advisor Motorclub.</span></h4>
@@ -63,12 +102,12 @@ export const RegisterScreen = ()=>{
 
                         <div className="row rowFlex">
                             <div className="col-sm-6">
-                                <label for="name">YOUR NAME: </label>
+                                <label>YOUR NAME: </label>
                                 <input type="text" className="form-control" id="name" value= {name} name="name" onChange = { handleInputChange } pattern="^[A-Za-z -]+$" placeholder="Enter Your Name" title="Your Name should be alphabetic" required />
                             </div>
                             
                             <div className="col-sm-6">
-                                <label for="lastname">YOUR LASTNAME: </label>
+                                <label>YOUR LASTNAME: </label>
                                 <input type="text" className="form-control" id="lastname" value= {lastname} name="lastname" onChange = { handleInputChange } pattern="^[A-Za-z -]+$" placeholder="Enter Your LastName" title="Your Name should be alphabetic" required />
                             </div>
                         </div>
@@ -76,15 +115,15 @@ export const RegisterScreen = ()=>{
 
                         <div className="row rowFlex mt-3">
                             <div className="col-sm-6">
-                                <label for="name">EMAIL: </label>
+                                <label >EMAIL: </label>
                                 <input type="email" className="form-control" id="email" value= {email} name="email" onChange = { handleInputChange } placeholder="Enter your email address" pattern="[a-z0-9.]+@[a-z0-9.]+\.[a-z]{2,}$" title="Your Email (Required)" required />
                             </div>
 
                             <div className="col-sm-6 form-group">
-                                <label for="lastname">PASSWORD: </label>
+                                <label >PASSWORD: </label>
 
                             
-                                <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+                              {/*   <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"/> */}
 
                                 <div className="input-group mb-3">
                                     <input type="password" className="form-control" value= {password} id="password" onChange = { handleInputChange } name="password" placeholder="Enter your password" title="Your Password (Required)" aria-label="Recipient's username" aria-describedby="button-addon2" required />
@@ -103,7 +142,7 @@ export const RegisterScreen = ()=>{
 
                         <div className="row rowFlex">
                             <div className="col-sm-12">
-                                <label for="name">PHONE NUMBER: </label>
+                                <label>PHONE NUMBER: </label>
                                 <input type="text" className="form-control" name="phone" value= {phone} onChange = { handleInputChange } id="phoneNumber" placeholder="Enter your phone number" required />
                             </div>
                         </div>			
@@ -113,7 +152,7 @@ export const RegisterScreen = ()=>{
                             <div className="col-sm-12">
                                 <label >What membership benefits package do you want to purchase ?</label>
                                 <div className="control">
-                                    <select className="form-control" required="" value= {membershipType} name="membershipType" id="rv_owner" onChange = { handleInputChange }  required>
+                                    <select className="form-control" required=""  name="membershipType" id="rv_owner" onChange={ handleSelect }  required>
 
                                         <option value="">Choose an option . . .</option>
                                         <option value="4">Non Member Account ($0.00)</option>
@@ -126,9 +165,79 @@ export const RegisterScreen = ()=>{
                             </div>
                         </div>
 
+                        <div className={`row rowFlex ${ !typeMembership1 && 'd-none' }`}>
 
+                            <div className="col-sm-12">
+                                <h6 className="mt-3">With your Basic Account you will be receiving:</h6>
+                               <ul>
+                                   <li>1 Year of Access to the RV Advisor Motorclub.</li>
+                                   <li>Preferal price in all the services of our store.</li>
+                                   <li>Exclusive access to our partners discounts.</li>
+                               </ul>
+                            </div>
 
-                        <div className="row rowFlex">
+                        </div>
+
+                       <div className={`row rowFlex ${ !typeMembership2 && 'd-none' }`}>
+
+                            <div className="col-sm-12">
+                                <h6 className="mt-3">With your Gold Account you will be receiving:</h6>
+                               <ul>
+                                   <li>3 years of Access to the RV Advisor Motorclub.</li>
+                                   <li>Preferal price in all the services of our store.</li>
+                                   <li>Exclusive access to our partners discounts.</li>
+                                   <li>Legal club included for one year.</li>
+                                   <li>Exclusive access to our Travel Reward club and Coupons on the go (save around).</li>
+                               </ul>
+                            </div>
+
+                        </div>
+
+                        <div className={`row rowFlex ${ !typeMembership3 && 'd-none' }`}>
+
+                            <div className="col-sm-12">
+                                <h6 className="mt-3">With your Platinum Account you will be receiving:</h6>
+                               <ul>
+                                   <li>5 years of Access to the RV Advisor Motorclub.</li>
+                                   <li>Preferal price in all the services of our store.</li>
+                                   <li>Exclusive access to our partners discounts.</li>
+                                   <li>Legal club included for one year.</li>
+                                   <li>Exclusive access to our Travel Reward club and Coupons on the go (save around).</li>
+                               </ul>
+                            </div>
+
+                        </div>
+
+                        <div className={`row rowFlex ${ !typeMembership5 && 'd-none' }`}>
+
+                            <div className="col-sm-12">
+                                <h6 className="mt-3">Access to The RV Advisor Professional dashboard</h6>
+                               <ul>
+                                   <li>Create a professional landing page.</li>
+                                   <li>Sell products on your store.</li>
+                                   <li>Create events and contests.</li>
+                                   <li>Network with other professionals.</li>
+                                  
+                               </ul>
+                            </div>
+
+                        </div>
+
+                        <div className={`row rowFlex ${ !typeMembership4 && 'd-none' }`}>
+
+                            <div className="col-sm-12">
+                                <h6 className="mt-3">Free access to The RV Advisor dashboard</h6>
+                               <ul>
+                                   <li>You will not have access to the benefits of The RV Advisor Motorclub.</li>
+                                   <li>You will not have access to Coupons.</li>
+                                   <li>You will not have member pricing on our services.</li>
+                                   
+                               </ul>
+                            </div>
+
+                        </div>
+
+                        <div className="row rowFlex mt-5 ">
                             <div className="col-sm-6">
                                 <label>Are you a RV, Camper or Trailer Owner?:</label>
                                 <div className="control">
@@ -141,7 +250,7 @@ export const RegisterScreen = ()=>{
 					        </div>
 
                             <div className="col-sm-6">
-                                <label for="reference">How do you hear about us:</label>
+                                <label>How do you hear about us:</label>
                                 <div className="control">
                                     <select className="form-control" name="reference" id="reference" value= {reference} onChange = { handleInputChange }>
                                         <option value="">Choose an option . . .</option>
@@ -167,7 +276,7 @@ export const RegisterScreen = ()=>{
                         <input type="hidden" name="Allow_Communications" value="Yes" />
 
                         <div className="field termsCond text-center mt-5">
-                            <input type="checkbox" name="terms"  id="terms" onChange = { handleInputChange } required /><label> &nbsp;&nbsp; I accept terms and conditions (<a target="_BLANK" href="#"> Read Here</a>)</label> <br />
+                            <input type="checkbox" name="terms"  id="terms" onChange = { handleInputChange } required /><label> &nbsp;&nbsp; I accept terms and conditions {/* (<a target="_BLANK" href="#"> Read Here</a>) */}</label> <br />
 
                             <button className="btn btn-info btn-lg mt-3" id="buttonSignup">SIGN UP</button><br />
                         </div>
